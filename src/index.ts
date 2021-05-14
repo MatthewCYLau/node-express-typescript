@@ -2,6 +2,7 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import connectDB from "./db/connect";
 import { todosRouter } from "./todos/todos.router";
 
 dotenv.config();
@@ -13,6 +14,8 @@ if (!process.env.PORT) {
 const PORT: number = parseInt(process.env.PORT as string, 10);
 
 const app = express();
+
+connectDB();
 
 app.use(helmet());
 app.use(cors());
