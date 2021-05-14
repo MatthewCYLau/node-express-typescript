@@ -4,21 +4,21 @@ import { Todos } from "./todos.interface";
 let todos: Todos = {
   1: {
     id: 1,
-    name: "Burger",
-    score: 599,
-    description: "Tasty"
+    name: "Grocery",
+    score: 8,
+    description: "Buy food"
   },
   2: {
     id: 2,
-    name: "Pizza",
-    score: 299,
-    description: "Cheesy"
+    name: "Cleaning",
+    score: 9,
+    description: "Clean the kitchen"
   },
   3: {
     id: 3,
-    name: "Tea",
-    score: 199,
-    description: "Informative"
+    name: "Gardening",
+    score: 3,
+    description: "Cut grass"
   }
 };
 
