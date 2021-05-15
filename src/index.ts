@@ -1,9 +1,9 @@
 import * as dotenv from "dotenv";
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import connectDB from "./db/connect";
-import { todosRouter } from "./todos/todos.router";
+import { todoRouter } from "./todo/todo.router";
 
 dotenv.config();
 
@@ -20,7 +20,11 @@ connectDB();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-app.use("/api/v1/todos", todosRouter);
+app.use("/api/v1/", todoRouter);
+
+app.use("/ping", (req: Request, res: Response) => {
+  return res.status(200).send("pong!");
+});
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
