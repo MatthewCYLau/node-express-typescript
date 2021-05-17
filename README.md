@@ -2,6 +2,10 @@
 
 A reference project to build, and deploy a TypeScript Node Express service to GCP Cloud Run
 
+## Pre-requisite
+
+- Please ensure you have [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) installed locally
+
 ## Build
 
 ```bash
