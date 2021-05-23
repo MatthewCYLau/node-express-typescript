@@ -18,6 +18,12 @@ gcloud builds submit --tag gcr.io/<PROJECT-ID>/ts-node
 gcloud run deploy --image gcr.io/<PROJECT-ID>/ts-node --platform managed
 ```
 
+- Add an environment variable for `MONGO_DB_CONNECTION_STRING`. See GCP Cloud Run documentation [here](https://cloud.google.com/run/docs/configuring/environment-variables)
+
+## Usage
+
+- Access app at `<CLOUD-RUN-SERVICE-URL>/ping`
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
