@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
+    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "start": "ts-node --transpile-only src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,8 @@
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
-    "mongoose": "^5.12.9"
+    "mongoose": "^5.12.9",
+    "ts-node": "^9.1.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",

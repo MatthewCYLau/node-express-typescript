@@ -6,6 +6,11 @@ A reference project to build, and deploy a TypeScript Node Express service to GC
 
 - Please ensure you have [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) installed locally
 
+## Development
+
+- Create a `.env` file at project root directory. Populate with `PORT`, and `MONGO_DB_CONNECTION_STRING`
+- Run `npm run dev`
+
 ## Build
 
 ```bash
