@@ -1,17 +1,15 @@
-import * as dotenv from "dotenv";
+require("dotenv").config();
 import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import connectDB from "./db/connect";
 import { todoRouter } from "./todo/todo.router";
 
-dotenv.config();
-
 if (!process.env.PORT) {
   process.exit(1);
 }
 
-const PORT: number = parseInt(process.env.PORT as string, 10);
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 

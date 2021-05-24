@@ -37,3 +37,5 @@ firebase-debug.log*
 *secret.tfvars
 
 *.zip
+
+/dist

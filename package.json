@@ -2,10 +2,11 @@
   "name": "node-express-typescript",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
-    "start": "ts-node --transpile-only src/index.ts"
+    "build": "tsc --build",
+    "dev": "ts-node-dev --respawn --pretty --transpile-only src/app.ts",
+    "start": "tsc && node dist/app.js"
   },
   "keywords": [],
   "author": "",
