@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: https://iseven-as-a-service-sxzla7yera-ew.a.run.app/
+      url: https://node-express-typescript-sxzla7yera-ew.a.run.app
     steps:
       - name: Checkout
         uses: actions/checkout@v2
