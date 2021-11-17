@@ -2,6 +2,8 @@
 
 A reference project to build, and deploy a TypeScript Node Express service to GCP Cloud Run
 
+![cicd cloud run workflow](https://github.com/MatthewCYLau/node-express-typescript/actions/workflows/cicd-cloud-run.yml/badge.svg)
+
 ## Pre-requisite
 
 - Please ensure you have [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) installed locally
