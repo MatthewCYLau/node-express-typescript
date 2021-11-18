@@ -21,8 +21,9 @@ router.post(
   requireAuth,
   async (req: Request, res: Response) => {
     const { title, description } = req.body;
+    const user = req.currentUser;
 
-    const todo = Todo.build({ title, description });
+    const todo = Todo.build({ title, description, user: user.email });
     await todo.save();
     return res.status(201).send(todo);
   }
