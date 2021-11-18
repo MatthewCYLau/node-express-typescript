@@ -7,12 +7,12 @@ import { signinRouter } from "./routes/signin";
 import { signoutRouter } from "./routes/signout";
 import { signupRouter } from "./routes/signup";
 import { errorHandler } from "./middlewares/error-handler";
+import { todoRouter } from "./routes/todos";
 import { NotFoundError } from "./errors/not-found-error";
 import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import connectDB from "./db/connect";
-import { todoRouter } from "./todo/todo.router";
 
 if (!process.env.PORT) {
   process.exit(1);

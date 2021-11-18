@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { Todo } from "../todo/todo.interface";
+import { Todo } from "../models/todo";
 import { currentUser } from "../middlewares/current-user";
 import { requireAuth } from "../middlewares/require-auth";
 

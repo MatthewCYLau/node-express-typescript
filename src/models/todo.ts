@@ -17,12 +17,12 @@ interface TodoDoc extends mongoose.Document {
 const todoSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 todoSchema.statics.build = (attr: ITodo) => {
@@ -33,7 +33,7 @@ const Todo = mongoose.model<TodoDoc, todoModelInterface>("Todo", todoSchema);
 
 Todo.build({
   title: "some title",
-  description: "some description"
+  description: "some description",
 });
 
 export { Todo };
