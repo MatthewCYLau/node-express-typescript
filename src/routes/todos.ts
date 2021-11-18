@@ -21,11 +21,46 @@ router.post(
   requireAuth,
   async (req: Request, res: Response) => {
     const { title, description } = req.body;
-    const user = req.currentUser;
-
-    const todo = Todo.build({ title, description, user: user.email });
+    const todo = Todo.build({
+      title,
+      description,
+      user: req.currentUser.email,
+    });
     await todo.save();
     return res.status(201).send(todo);
+  }
+);
+
+router.get(
+  "/todos/me",
+  currentUser,
+  requireAuth,
+  async (req: Request, res: Response) => {
+    const todo = await Todo.find({ user: req.currentUser.email });
+    return res.status(200).send(todo);
+  }
+);
+
+router.get(
+  "/todos/:id",
+  currentUser,
+  requireAuth,
+  async (req: Request, res: Response) => {
+    const todo = await Todo.findById(req.params.id);
+    if (!todo) {
+      return res.status(404).send();
+    }
+    return res.status(200).send(todo);
+  }
+);
+
+router.delete(
+  "/todos/:id",
+  currentUser,
+  requireAuth,
+  async (req: Request, res: Response) => {
+    const todo = await Todo.findByIdAndDelete(req.params.id);
+    return res.status(200).send(todo);
   }
 );
 
