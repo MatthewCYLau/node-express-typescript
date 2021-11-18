@@ -10,8 +10,20 @@ A reference project to build, and deploy a TypeScript Node Express service to GC
 
 ## Development
 
-- Create a `.env` file at project root directory. Populate with `PORT`, and `MONGO_DB_CONNECTION_STRING`
-- Run `npm run dev`
+- Create a `.env` file at project root directory, and populate with following:
+
+```
+PORT=<PORT-NUMBER>
+JWT_KEY=<A-SECRET-JWT-TOKEN>
+MONGO_DB_CONNECTION_STRING=<YOUR-MONGO-DB-CONNECTION-STRING>
+```
+
+- Then, run the following commands:
+
+```bash
+npm i # installs Node dependencies
+npm run dev` # app listening at http://localhost:8080
+```
 
 ## Build
 
@@ -21,15 +33,19 @@ gcloud builds submit --tag gcr.io/<PROJECT-ID>/ts-node
 
 ## Deploy
 
+- Create two secrets on [Secrets Manager](https://cloud.google.com/secret-manager) named `jwt-key`, and `mongo-db-connection-string`
+
+- Deploy to Cloud Run by running:
+
 ```bash
 gcloud run deploy --image gcr.io/<PROJECT-ID>/ts-node --platform managed
 ```
 
-- Add an environment variable for `MONGO_DB_CONNECTION_STRING`. See GCP Cloud Run documentation [here](https://cloud.google.com/run/docs/configuring/environment-variables)
+- Allow Cloud Run service access to the secrets as secret environment variables. See GCP Cloud Run documentation [here](https://cloud.google.com/run/docs/configuring/secrets#mounting-secrets)
 
 ## Usage
 
-- Access app at `<CLOUD-RUN-SERVICE-URL>/ping`
+- Make a `GET` request at `<CLOUD-RUN-SERVICE-URL>/ping`
 
 ## Contributing
 
