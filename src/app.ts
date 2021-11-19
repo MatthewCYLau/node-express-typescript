@@ -9,6 +9,7 @@ import { signupRouter } from "./routes/signup";
 import { errorHandler } from "./middlewares/error-handler";
 import { todoRouter } from "./routes/todos";
 import { NotFoundError } from "./errors/not-found-error";
+import client from "./redis-cache";
 import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
@@ -20,6 +21,7 @@ if (!process.env.PORT) {
 
 const PORT = process.env.PORT || 8080;
 
+// set-up Express app
 const app = express();
 app.set("trust proxy", true);
 app.use(json());
@@ -32,6 +34,7 @@ app.use(
   })
 );
 
+// set-up routers
 app.use(currentUserRouter);
 app.use(signinRouter);
 app.use(signoutRouter);
@@ -43,6 +46,11 @@ app.all("*", async (_req, _res) => {
 });
 
 app.use(errorHandler);
+
+// set-up Redis client
+client.on("error", (error) => {
+  console.error(error);
+});
 
 app.use("/ping", (_req: Request, res: Response) => {
   return res.status(200).send("pong!");
