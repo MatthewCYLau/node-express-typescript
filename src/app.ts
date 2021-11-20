@@ -41,6 +41,10 @@ app.use(signoutRouter);
 app.use(signupRouter);
 app.use("/api/v1/", todoRouter);
 
+app.use("/", (_req: Request, res: Response) => {
+  return res.status(200).send("Up!");
+});
+
 app.all("*", async (_req, _res) => {
   throw new NotFoundError();
 });
@@ -50,10 +54,6 @@ app.use(errorHandler);
 // set-up Redis client
 client.on("error", (error) => {
   console.error(error);
-});
-
-app.use("/ping", (_req: Request, res: Response) => {
-  return res.status(200).send("pong!");
 });
 
 const start = async () => {
